@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(39, 147, 214);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Learning JS</h1>
+    <div>Most of this page is filled with JavaScript and you can only <br>
+        find their outcomes in the console.</div>
+
+
+    <main></main>
+    <main2></main2>
+    <main3></main3>
+    <!--for the js querySelector for the MadLib story-->
+
+</body>
+<script>
+    // primitive data types are pretty much the basics of data types in js.
+    // such as String, Number, Boolean.
+
+
+
+    // 1. Declare variables and capture input.
+    let name = prompt("Give our character a name");
+    let thing = prompt("name a thing");
+    let plurl = prompt("give me a plurl thing");
+
+    // 2. Combine the input with other words to create a story.
+    let story = `<h2>MadLib Story</h2>This is the story of a guy named ${name} who lived in a ${thing}. <br>
+They loved living in the ${thing} so much that they invited all of their ${plurl}
+to live there too!`;
+
+    // 3. Display the story as a <p> inside the <main> element.
+    document.querySelector('main').innerHTML = story;
+
+    console.log(story);
+    console.log(`Items given were:
+            ${name}
+            ${thing}
+            ${plurl}
+            `);
+
+    //---------------------------------
+
+    const answer = prompt("Which planet is closest to the sun?");
+    const realAns = "Murcury";
+
+    if (answer === realAns) {
+        console.log("That's correct!");
+    } else if (answer === "I don't know") {
+        console.log("Murcury");
+    } else {
+        console.log("Sorry, that's incorrect");
+    }
+
+
+    //-----------------------------------
+    // boolean, bool
+
+    if (false) {
+        a = 'The condition is true.'
+    } else {
+        a = 'The condition is false.'
+    }
+
+    document.querySelector('main2').innerHTML = `${a} because if statements always looks for 'true' if it's not specified by a different conditional statement.`;
+
+
+
+    //-----------------------------------
+    let correctGuess = false;
+    const num = 6;
+    const guess = prompt('Guess a number between 1-10.');
+
+    // when guess is entered above, its type is string.
+    // doing the + unary opperator like here, changes its type to a number.
+    if (+guess === num) {
+        correctGuess = true;
+    }
+
+
+
+
+    //-------------------------------------------------
+    /* This one was a 5 question quiz. It kept giving 1 ans correct, Bronze ranking. I shortened the questions and just 
+    gave the answers in the question for testing purposes. Found out that I needed set up my RANK CONDITIONS to ask for highest points accumulated first, then less and less. AND, I couldn't use the OR || operators in the 
+    ranking section, it would goof up--and I was confused. So instead of understandig the issue, I folded and used the teacher's answer which was to use  correct >= (number greater than the next ranking). --This method I understand.
+      1. Store correct answers
+       - When quiz begins, no answers are correct
+    */
+    let correct = 0;
+
+    // 2. Store the rank of a player
+    let rank;
+
+    // 3. Select the <main> HTML element
+    const main = document.querySelector('main');
+
+    /*
+      4. Ask at least 5 questions
+       - Store each answer in a variable
+       - Keep track of the number of correct answers
+    */
+    const ans1 = prompt("5");
+    if (+ans1 === 5) {
+        correct += 1;
+    }
+
+    const ans2 = prompt("4");
+    if (ans2 === '4') {
+        correct += 1;
+    }
+
+    let ans3 = prompt('3');
+    if (ans3 === '3') {
+        correct += 1;
+    }
+
+    let ans4 = prompt('2');
+    if (ans4 === '2') {
+        correct += 1;
+    }
+
+    let ans5 = prompt('1');
+    if (ans5 === '1') {
+        correct += 1;
+    }
+
+
+    // RANK CONDITIONS -------------
+    if (correct === 5) {
+        rank = 'Gold';
+
+    } else if (correct >= 3) {
+        rank = 'Silver';
+
+    } else if (correct >= 2) {
+        rank = 'Bronze';
+
+    } else {
+        rank = "no crown";
+
+    }
+
+
+    /*
+      5. Rank player based on number of correct answers
+       - 5 correct = Gold
+       - 3-4 correct = Silver
+       - 1-2 correct = Bronze
+       - 0 correct = No crown
+    */
+
+
+    // 6. Output results to the <main> element
+
+    document.querySelector('main').innerHTML = `You have ${correct} points out of 5, your crown is ${rank}!`;
+
+    //-------------------------------------------------
+
+
+    //short conversions to calculate how many seconds are in a day or 'since you've been alive'
+    const secsPerMin = 60
+    const minsPerHour = 60
+    const hoursPerDay = 24
+    const daysPerWeek = 7
+    const weeksPerYear = 52
+
+    const secondsPerDay = secsPerMin * minsPerHour * hoursPerDay
+    console.log(`There are ${secondsPerDay} seconds in a day.`)
+
+    const yearsAlive = prompt('How old are you?')
+    const secondsAlive = secondsPerDay * daysPerWeek * weeksPerYear * yearsAlive
+    console.log(`I've been alive for more than ${secondsAlive} seconds!`)
+    //----------------------------------------------
+
+    // changing the type of a number. Also known as type-casting. Only showing string to a number type casting here..
+    let num1 = 55; //type of number
+    let pi = '3.14'; //type of string, since it's in quotes
+    let ans = Number(pi) + num1; //changes the string pi in to a Number, then adds num1 to it as a number.
+    let altAns = +pi + num1; //unary opperator + changes pi to a number as well. answer is 58.14
+    console.log(typeof pi); //will give 'string' in the console. Will only give you the 'type of' of that item. The value will not be shown.
+    console.log(ans); // ans = 58.14
+    console.log('using the unary + opperator: ' + altAns); //answer is 58.14
+    console.log(`back-tics, pi is ${+pi}, plus num1 of 55 = ${+pi + num1}.`); //just being clever and using back-tic's, and in-line code snippets :)
+    // others are parseInt(value), which only changes a string to an Int.
+    console.log(parseInt(pi)); //now its type is 3.   --only returns 3 because you asked for an Int, not the Float!
+    console.log(parseFloat(pi)); // gives 3.14
+    console.log(Number(pi)); // gives 3.14, some argue that this is a bit slower since you have to type or read 'Number()' rather than just using the + unarary opperator.
+    let uuid = '314-sdf-32kd';
+    console.log(parseInt(uuid)); //returns 314 and drops the rest. Can be useful if you are actually looking to return such an answer.
+
+    // a perfect example is below. You are trying to find the total width of several images in your web page.
+    const width = '190px'; //string
+    const totalImages = 10; //number
+    let totalWidth = parseInt(width) * totalImages;
+    /* ^^ - parseInt and parseFloat are the only ones that you can use that will take the 190 and drop the px string characters
+       so that you can evaluate the code. +,Number() return NaN (Not a Number). 
+    */
+    console.log(totalWidth);
+
+
+    //----------------------------------------------
+
+    // object types
+
+    // Math object
+    console.log(Math.round(44.7)) // 45
+    console.log(Math.max(1, 3, 2)) // 3
+    console.log(Math.min(1, 3, 2)) // 1
+    console.log(Math.floor(5.5)) // 5   always rounds down to the whole number.
+    console.log(Math.floor(5.95)); // expected output: 5
+    console.log(Math.floor(-5.05)); // expected output: -6
+    console.log(Math.ceil(5.05)); // 6  always rounds up to the next whole number.
+
+    console.log(Math.floor(Math.random() * 6));
+    // .floor grabs lowest whole number.
+    // .random gives us a random number beetween 0 and 1 but not 1.
+    // * 6 multiplies the random number by 6.
+    // so, if you get 0.26858698121888613, multiply it by 6, it gives you 1.611521887313317
+    // so you can use Math.floor to drop it down to a usable number of 1 in this case.
+
+    /* so, if I had 6 dice, and I wanted random numbers between 1 and 6,
+       I'd have to use Math.floor( Math.random() * 6) + 1;
+       --It will always give at least 1, and no more than 6 (because when Math.random is run, its always 0.xxxxxxxx instead of 1.xxxxxxxx).
+    
+       You would not however, want to run Math.ceil  because it's possible 
+       that it would return 0, and 0 lies outside of our criteria.
+    
+        const dieRoll = Math.floor( Math.random() * 6) + 1;
+        console.log(`You rolled a ${dieRoll}`);
+    
+    */
+
+
+
+
+
+
+    //----------------------------------
+    // Collect input from a user
+    const lowNum = prompt("Enter a low number");
+    const highNum = prompt("Enter a number high number");
+
+
+    // Convert the input to a number
+    let lowConvertedNum = parseInt(lowNum);
+    let highConvertedNum = parseInt(highNum);
+
+
+
+    if (lowConvertedNum && highConvertedNum) {
+
+        // Use Math.random() and the user's number to generate a random number
+        let randomNumber = Math.floor(Math.random() * (highConvertedNum = lowConvertedNum + 1)) + lowConvertedNum;
+
+        // Create a message displaying the random number
+        console.log(`${randomNumber} is a random number between ${lowNum} and ${highNum}!`);
+
+    } else {
+        console.log('You need to provide two numbers. Try again.');
+    }// answer:   Out of 1 - 44, the random number is 37!
+    //----------------------------------
+
+
+
+
+    // 1. Attach this file -- math.js -- to the index.html file using a <script> tag
+    // done.
+    // 2. Add an alert to announce the program with a message like "Let's do some math!"
+    alert("Lets do some math!!");
+    // 3. Create a variable and use the prompt() method to collect a number from a visitor
+    var n1 = prompt("Enter a number");
+    // 4. Convert that value from a string to a floating point number
+    var n1 = parseFloat(n1);
+    // 5. Repeat steps 3 and 4 to create a second variable and collect a second number
+    var n2 = prompt("Enter a second number");
+    var n2 = parseFloat(n2);
+    // 6. Create a new variable -- message -- which you'll use to build
+    //    a complete message to print to the document
+    //    Start by creating a string that includes <h1> tags as well
+    //    and the two input numbers. The string should look something like this:
+    //    "<h1>Math  with the numbers 3 and 4</h1>" where the two numbers are
+    //    the values input from the user. Use string concatenation to create this
+    //    and make sure you actually perform the math on the values by 
+    //    using the + symbol to add their values together
+
+    let a1
+    let a2
+    let a3
+    let a4
+
+    let final = `<h1>Math with numbers ${n1} and ${n2}</h1><p>${n1} + ${n2} = ${a1 = n1 + n2}<br>${n1} * ${n2} = ${a1 = n1 * n2}<br>${n1} / ${n2} = ${a1 = n1 / n2}<br>${n1} - ${n2} = ${a1 = n1 - n2}<br>`;
+    // 7. Add another string to the message variable. 
+    //    The string should look something like this after concatenation:
+    //    "3 + 4 = 7"
+
+    // 8. Add a linebreak tag -- <br> -- to the message variable
+
+    // 9. Continue to add to the message variable to include strings
+    //    demonstrating multiplication, division and subtraction
+    //    For example:
+    //    "3 * 4 = 12"
+    //    "3 / 4 = 0.75"
+    //    "3 - 4 = -1"
+
+    // 10. Use the document.write() method to print the message variable 
+    //     to the web page. Open the finished.png file in this workspace
+    //     to see what the completed output should look like
+
+
+
+    document.querySelector('main').innerHTML = final;
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
