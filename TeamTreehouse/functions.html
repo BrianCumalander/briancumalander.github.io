@@ -9,9 +9,121 @@
 </head>
 
 <body>
+    <div>
+        <h2>Dice game</h2>
+        die 1 = <die1></die1><br>
+        die 2 = <die2></die2><br>
+        die 3 = <die3></die3>
+    </div>
+
+    <div>multiple-returns<br>
+        <input type="text" id="info">
+    </div>
+
 
 </body>
 <script>
+
+    //---------------random number generator, along with 3 dice rolls (only works on page refresh)
+    function getRandom() {
+        const randomNumber = Math.floor(Math.random() * 6) + 1;
+        return randomNumber;
+    }
+    // console.log(alertRandom());
+    document.querySelector('die1').innerHTML = getRandom();
+    document.querySelector('die2').innerHTML = getRandom();
+    document.querySelector('die3').innerHTML = getRandom();
+
+    //-------------------------------
+
+
+
+
+    // determin the higher number
+    function max(low, hi) {
+        const higherNum = Math.max(low, hi);
+        return higherNum;
+    }
+
+    let test = max(6, 2);
+    console.log(test);
+    //-------------------------
+
+
+    //---Assigning default values to a function so that nothing returns undefined.
+
+    function getArea(width = 1, length = 1, unit = 'sq. feet') {
+        const area = width * length;
+        return `${area} ${unit}`;
+    }
+
+    // arrow function would look like:
+    getArea = (width = 1, length = 1, unit = 'sq. feet') => {
+        return `const area = (width * length) + unit`;
+    }
+    console.log(getArea(6, 5));
+    //const myFunc = () => {
+
+    //};
+
+    /*
+        const square = function (x) {
+            return x * x;
+        }
+    
+        //becomes
+        const square = (x) => {
+            return x * x;
+        }
+    */
+
+
+    // using a function to return a random number
+    function randomNumberFunction(lower, upper) {
+        return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+    }
+
+    console.log(randomNumberFunction(1, 6));
+    //----------------------------------
+
+
+
+
+
+
+
+
+
+    /**
+     * Returns a random number between two numbers.
+     *
+     * @param {number} lower - The lowest number value.
+     * @param {number} upper - The highest number value.
+     * @return {number} The random number value.
+     */
+
+    //Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+
+    // Call the function and pass it different values
+
+
+    function rando(lower = 1, upper = 100) {
+        if (isNaN(lower) || isNaN(upper)) {
+            console.log('Please enter numbers only. Try again');
+        } else {
+            return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+        }
+    }
+
+    console.log(rando(2, '10'));
+// the second number is a string value, but it appears that isNaN comes from Number.isNaN, and must be converting the string to a number, because the code works! --ie, doesn't error out b/c of the string type encountered.
+
+
+
+
+
+
+
 
 
 
@@ -21,3 +133,24 @@
 </script>
 
 </html>
+
+
+
+
+
+
+
+
+const myFunc = () => {
+
+};
+
+
+
+
+
+
+const myFunc = () => {
+
+};
+myFunc();
