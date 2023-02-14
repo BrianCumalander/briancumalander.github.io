@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Method Arrays and their definitions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Method Arrays and their definitions--</h2>
+    <main></main>
+    <main2></main2>
+    <div>
+        <headingTitle></headingTitle>
+        <main3></main3>
+    </div>
+
+    <div>
+        <h2>My Playlist 2</h2>
+        <playlist2></playlist2>
+    </div>
+    <div>
+        <h2>Quiz</h2>
+        <quiz></quiz>
+    </div>
+</body>
+<script>
+    let arrayMethods = ['push', 'pop', 'shift', 'unshift']
+    let definitions = ['add to the end', 'remove from the end', 'remove from start', 'add to start']
+
+    //using string-litterals to display the arrays
+    document.querySelector('main').innerHTML = `${arrayMethods[0]} = ${definitions[0]}.`;
+    // or this:
+    document.querySelector('main2').innerHTML =
+        `${arrayMethods[1]} = ${definitions[1]} <br> 
+        ${arrayMethods[2]} = ${definitions[2]} <br> 
+        ${arrayMethods[3]} = ${definitions[3]} <br> 
+        ${arrayMethods[4]} = ${definitions[4]}`;
+
+    /*
+    end:
+    push add to end
+    pop remove from end
+    
+    start:
+    shift remove from start
+    unshift add to start
+    */
+
+    const orderQueue = ['1XT567437', '1U7857317', '1I9222528'];
+    let shipping = orderQueue.shift();
+
+
+    //------------the Spread opperator-----------------------------------
+    const middle = ['lettuce', 'cheese', 'patty'];
+    const burger = ['top bun', ...middle, 'bottom bun'];
+
+    //with spread, you put the ...arrayName whereever you want to combine the 
+    //array. ---see where burger, the second element is ...middle.
+    console.log(burger); // ['top bun', 'lettuce', 'cheese', 'patty', 'bottom bun']
+
+    //to combine two arrays in to a new array, it works the same way:
+
+    const fullBurger = [...middle, ...burger];
+    console.log(fullBurger);
+    // ['lettuce', 'cheese', 'patty', 'top bun', 'lettuce', 'cheese', 'patty', 'bottom bun']
+
+
+
+    //--In stock or not? - searching an array and displaying 'if <inStock> or not'
+    const heddingTitle = "Products";
+    const inStock = ['pizza', 'cookies', 'eggs', 'apples', 'milk', 'cheese', 'bread', 'lettuce', 'carrots', 'broccoli', 'potatoes', 'crackers', 'onions', 'tofu', 'limes', 'cucumbers'];
+    const search = prompt('Search for a product.');
+    let message;
+
+    if (inStock.includes(search)) {
+        message = `Yes, we have ${search}.`;
+    } else {
+        message = `Sorry, we don't have ${search} in stock.`;
+    }
+
+    document.querySelector('headingTitle').innerHTML = `<h1>${heddingTitle}</h1>`;
+
+    console.log(message);
+    document.querySelector('main').innerHTML = `${message}`;
+
+
+
+
+
+    //--for loop to increment through array 100 to 10 in the console
+    const temperatures = [100, 90, 99, 80, 70, 65, 30, 10];
+
+    for (var i = 0; i < temperatures.length; i++) {
+        console.log(temperatures[i]);
+    }
+
+
+
+
+    /*  ----    PLAYLIST 2 -------------------------- */
+    const playlist = [
+        ['So What', 'Miles Davis', '9:04'],
+        ['Respect', 'Aretha Franklin', '2:45'],
+        ['What a Wonderful World', 'Louis Armstrong', '2:21'],
+        ['At Last', 'Ella Fitzgerald', '4:18'],
+        ['Three Little Birds', 'Bob Marley and the Wailers', '3:01'],
+        ['The Way You Look Tonight', 'Frank Sinatra', '3:21']
+    ];
+
+    function createPlayListItems(arr) {
+        let items = '';
+        for (let i = 0; i < arr.length; i++) {
+            items += `<li>${arr[i][0]}, by ${arr[i][1]} - ${arr[i][2]}</li>`;
+        }
+        return items;
+    }
+
+    document.querySelector('playlist2').innerHTML = `
+  <ol>
+    ${createPlayListItems(playlist)}
+  </ol>
+`;
+
+    /*   ----   PLAYLIST 2 - END -------------------------- */
+
+
+
+
+
+
+
+    /* -------- QUIZ --------------------------------------------------------- */
+    // 1. Create a multidimensional array to hold quiz questions and answers
+
+    const questions = [
+        ['How many planets are in the Solar System?', '8'],
+        ['How many continents are there?', '7'],
+        ['How many legs does an insect have?', '6'],
+        ['What year was JavaScript created?', '1995']
+    ];
+
+
+    // 2. Store the number of questions answered correctly
+    // const correct = [[q, a]]; ---wrong
+    const correct = [];
+    const wrong = [];
+    let correctAnswers = 0;
+
+    /* 
+      3. Use a loop to cycle through each question
+          - Present each question to the user
+          - Compare the user's response to answer in the array
+          - If the response matches the answer, the number of correctly
+            answered questions increments by 1
+    */
+
+    for (let i = 0; i < questions.length; i++) {
+        let question = questions[i][0];
+        let answer = questions[i][1];
+        let response = prompt(question); //prompt, 'question' varible. which is the first array piece, built from the first let which is let question.
+
+        //at this point you can test it so far. Does it ask each question? if yes, then good. Next, we will code out the conditional Statement to check if the answer matches, the correct, one.
+
+        if (response === answer) { //if the response var i= current questions array answer position, then ++ to the correctAnswers var. 
+            correctAnswers++;
+            correct.push(question);
+
+        } else {
+            wrong.push(question);
+        }
+    }
+
+    function createListItems(arr) {
+        let items = '';
+        for (let i = 0; i < arr.length; i++) {
+            items += `<li>${arr[i]}</li>`;
+        }
+        return items;
+    }
+
+    let html = `
+<h1>You got ${correctAnswers} out of ${questions.length} correct.</h1>
+<h2>You got these questions right</h2>
+<ol>${createListItems(correct)}</ol>
+
+<h2>You got these questions wrong</h2>
+<ol>${createListItems(wrong)}</ol>
+`;
+
+    // 4. Display the number of correct answers to the user
+    document.querySelector('quiz').innerHTML = html;
+
+    /* -------- QUIZ END --------------------------------------------------------- */
+
+
+
+</script>
+
+</html>

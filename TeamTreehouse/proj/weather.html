@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather - via JSON Data</title>
+</head>
+
+<body>
+
+</body>
+<script src="weatherKey.js"></script>
+
+<script>
+    /*
+    My Weather App
+    Began idea once I started learning about objects.
+    Plan on using JSON retrieval from openweathermap.org to retrieve city/state/usa data for current weather.
+    */
+
+    let lat;
+    let lon;
+    let city = prompt("Enter city");
+
+    let site = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=' + weatherKey;
+    //weatherKey is from weatherKey.js file which is listed in my .gitignore file.
+    const url = 'https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=' + lat + '&lon=' + lon + '&appid=' + weatherKey;
+    console.log(site);
+
+// can grab geo lat and lon from this api from openweathermap.org
+// https://openweathermap.org/api/geocoding-api
+
+
+
+
+
+</script>
+
+</html>

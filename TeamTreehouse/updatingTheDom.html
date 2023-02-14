@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Essentials</title>
+
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(-45deg, #415800, #e560dc, #ffb374, #ef5f5f, #d840b6);
+            background-size: 400%, 400%;
+            animation: bg 12s ease infinite;
+        }
+
+        @keyframes bg {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <select name="cssProperty" id="background">
+        <option value="Green">Green</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Red">Red</option>
+    </select>
+
+    <select name="cssProperty" id="width">
+        <option value="100px">100px</option>
+        <option value="200px">200px</option>
+        <option value="300px">300px</option>
+    </select>
+
+    <select name="cssProperty" id="height">
+        <option value="100px">100px</option>
+        <option value="200px">200px</option>
+        <option value="300px">300px</option>
+    </select>
+
+    <button id="set">Set</button>
+
+    <br><br>
+
+    <div id="modify" style="width:300px;height:300px;background:blue"></div>
+
+    <!--<script src="myapp.js"></script>-->
+
+</body>
+
+<script>
+    //when set button is clicked, run this function
+    function setFunc() {
+        alert('clicked');
+    }
+    //get the element id of set(button), listen to 'click' events and then run the setFunc.
+    document.getElementById('set').addEventListener('clicked', setFunc);
+
+
+
+
+
+
+
+    /*
+    let elements = document.getElementsByName('cssProperty');
+
+    let div = document.getElementById('modify');
+
+    function set() {
+
+        for (let index = 0; index < elements.length; index++) {
+            let cssProperty = elements[index].getAttribute('id');
+
+            let cssValue = elements[index].value;
+
+            div.style[cssProperty] = cssValue;
+        }
+    }
+
+    document.getElementById('set').addEventListener('click', set);
+    */
+</script>
+
+
+
+
+</html>

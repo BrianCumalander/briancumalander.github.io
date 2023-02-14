@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great places to visit in Colorado</title>
+
+</head>
+
+<body>
+
+    <div>
+        <h2>A few great places to visit in Colorado:</h2>
+    </div>
+    <div>
+        <main></main>
+    </div>
+
+
+</body>
+<script>
+    let arrayData = [
+        'Rocky Mountain National Park',
+        'Black Canyon of the Gunnison National Park',
+        'Mesa Verde National Park',
+        'Great Sand Dunes National Park',
+        'Estes Park',
+        'Crested Butte'
+    ]
+
+    //making sure the array returns a value
+    console.log(arrayData[1])
+
+    //find number of items in the array
+    let arrayLength = arrayData.length - 1;
+    console.log(arrayLength);
+
+    //create a random number between 0 and how many items are in the array
+    function randomIndexFunc(arrayLength) {
+        const randomNumber = Math.floor(Math.random() * arrayLength);
+        return randomNumber;
+    }
+    //feed our fuction and assign randIndex to it so that we can use it.
+    let randIndex = randomIndexFunc(arrayLength);
+
+    //make sure it works
+    console.log(arrayData[randIndex]);
+
+    //display the whole thing in th DOM
+    document.querySelector('main').innerHTML = `${arrayData[randIndex]}`;
+
+
+</script>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        pre {
+            font-size: smaller;
+        }
+    </style>
+    <title>Loops</title>
+</head>
+
+<body>
+
+    <div>
+        <h2>Do loop</h2>
+    <pre>
+   let i = 1;
+    do {
+        console.log(`#${i}` );
+        i += 2;
+    } while ( i<= 15 )
+    </pre>
+    </div>
+    <div>
+        <div>
+            <h2>While loop</h2>
+        <pre>
+    let counter = 0;
+    while (counter < 10) {
+        console.log(counter);
+        counter += 1;
+    }
+    </pre>
+        </div>
+        <h2>For loop, here, you would normally use i as the counter, as in the Do Loop up above, but here, I break it down a little</h2>
+        <pre>
+        remember
+    for ( decloration...let counter = 0; expresson...counter < 10; incrementer....counter += 1 )
+     { do....console.log(counter); }
+
+     such as:
+     for ( let counter = 0; counter < 10; counter += 1 ) {
+        console.log(counter);
+     }
+     
+</pre>
+    </div>
+
+
+<div>
+    <h1>HTML Collection</h1>
+In this example, we want to grab all of the 'li' elements in this ul list.<br>
+We are going to change their colors with a for loop.<p></p>
+<pre>
+<script>
+    // The colors that we will style each item in the list.
+    const colors = [
+  "#C2272D", 
+  "#F8931F", 
+  "#FFFF01", 
+  "#009245", 
+  "#0193D9", 
+  "#0C04ED", 
+  "#612F90"
+];
+
+// Grab the 'li' items in the list and build an HTML collection.
+let items = document.getElementsByTagName('li');
+
+// Loop through the colors array and items 'li' HTML collection
+for ( let i = 0; i < colors.length; i++ ) {
+  // Color the item i in the list with the color, which is also i since it's 
+  // correctly defined in the colors array.
+  items[i].style.color = colors[i]; 
+  
+  // You can also change the background color of each li line, which I stumbled upon and was really neat :)
+  //items[i].style.backgroundColor = colors[i];
+}
+</script>
+</pre>
+
+    <ul>
+      <li>This should be red</li>
+      <li>This should be orange</li>
+      <li>This should be yellow</li>
+      <li>This should be green</li>
+      <li>This should be blue</li>
+      <li>This should be indigo</li>
+      <li>This should be violet</li>
+    </ul>
+
+    <script>
+        // Complete the challenge by writing JavaScript below
+        const theseColors = [
+        "#C2272D", 
+        "#F8931F", 
+        "#FFFF01", 
+        "#009245", 
+        "#0193D9", 
+        "#0C04ED", 
+        "#612F90"
+        ];
+
+        let theseItems = document.getElementsByTagName('li');
+
+        for ( let i = 0; i < theseColors.length; i++ ) {
+            theseItems[i].style.color = theseColors[i]; 
+        //theseItems[i].style.backgroundColor = colors[i];
+        }
+
+    </script>
+</div>
+
+
+
+<div>
+    <h1>For Of Loop</h1>
+    A compact for loop<p></p>
+    <pre>
+
+        <ul>
+          <li>Make coffee</li>
+          <li class="highlight">Practice JavaScript</li>
+          <li>Walk the cat</li>
+          <li class="highlight">Watch a Treehouse video</li>
+          <li class="highlight">Go swimming</li>
+          <li>Play my guitar</li>
+        </ul>
+
+    <script>
+        for ( const highlight of highlights ) {
+            highlight.style.backgroundColor = 'cornsilk';
+        }
+    </script>
+    </pre>
+</div>
+
+
+<h3>You will have to read the source file to read the returned statements in this section.</h3>
+<h4>
+    document.querySelector('button')
+     will return the first 'button' that it finds   <button id="btn-main">Update Heading </button>
+
+    document.querySelector('.btn-toggle')
+    will return a class named .btn-toggle.
+
+    document.querySelector('#headline')
+    When selecting an id, use hash.  --returnes <h1 id="headline">My Day </h1>.
+Otherwise the returned statements will return null or error out.
+
+</h4>
+
+element - document.querySelectoryAll('li')<br>
+returns a NodeList rather than an HTML Collection.<p></p>
+
+class - document.querySelectorAll('highlight')<br>
+returns a NodeList as well.<p></p>
+</body>
+
+
+<script>
+    //count from 2 - 24 by 2's, for example 2,4,6,8...24
+    for (let i = 2; i <= 24; i += 2) {
+        console.log(i);
+    }
+
+</script>
+
+</html>

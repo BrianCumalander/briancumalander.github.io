@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main></main>
+</body>
+<script>
+    /*
+    an array of objects. 
+
+This one is more involved. First we will have what we are used to and we will
+transform it in to a more readble version, and keep refactoring one by one.
+
+*/
+
+
+    // 1. Create an array to hold quiz questions and answers
+    const questions = [
+        /* ['How many planets are in the Solar System?', '8'],
+         ['How many continents are there?', '7'],
+         ['How many legs does an insect have?', '6'],
+         ['What year was JavaScript created?', '1995']
+         */
+        /* 
+      Lets convert this array of arrays in to an array of objects. 
+      That way we can use property names to identify the Various pieces of data.
+      First I'll break it down, then I'll take out the white-space for brievity.
+      */
+        {
+            question: 'How many planets are in the Solar System?',
+            answer: '8'
+        },
+        { question: 'How many continents are there?', answer: '7' },
+        { question: 'How many legs does an insect have?', answer: '6' },
+        { question: 'What year was JavaScript created?', answer: '1995' }
+    ];
+
+
+
+
+    // 2. Store the number of questions answered correctly
+    const correct = [];
+    const incorrect = [];
+    let correctAnswers = 0;
+
+    /* 
+      3. Use a loop to cycle through each question
+          - Present each question to the user
+          - Compare the user's response to answer in the array
+          - If the response matches the answer, the number of correctly
+            answered questions increments by 1
+    */
+
+    /*
+    We had origionally used the following format to get the values out of the nested array.
+    In the first lesson he described these as multi-dimentional arrays. But Now he calls them 
+    nested-arrays.
+    Anywho, either way you do it will get the job done. It's just easier to read and for
+    other developers to read when you use objects rather than arrays.
+    Remember, you have to set-up your objects first (lines 13-19), then you can set up the next part on these next few lines.
+    */
+    for (let i = 0; i < questions.length; i++) {
+        // let question = questions[i][0];
+        // let answer = questions[i][1];
+        let question = questions[i].question;
+        let answer = questions[i].answer;
+
+        let response = prompt(question);
+
+        if (response === answer) {
+            correctAnswers++;
+            correct.push(question);
+        } else {
+            incorrect.push(question);
+        }
+    }
+
+    function createListItems(arr) {
+        let items = '';
+        for (let i = 0; i < arr.length; i++) {
+            items += `<li>${arr[i]}</li>`;
+        }
+        return items;
+    }
+
+    // 4. Display the number of correct answers to the user
+    let html = `
+  <h1>You got ${correctAnswers} question(s) correct</h1>
+  <h2>You got these questions right:</h2>
+  <ol>${createListItems(correct)}</ol>
+
+  <h2>You got these questions wrong:</h2>
+  <ol>${createListItems(incorrect)}</ol>
+`;
+
+    document.querySelector('main').innerHTML = html;
+
+
+
+
+</script>
+
+</html>

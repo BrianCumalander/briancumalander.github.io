@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duck Duck Go</title>
+
+    <style>
+        .logo {
+            width: 30%;
+        }
+
+        .myinputbox {
+            padding: 0.6em 0.7em;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+re-create the duck duck go site.
+Utilizes HTML5, CSS, JS
+
+-Mobile-first design via CSS & HTML5
+-js to focus cursor and set tab features
+
+-->
+
+    <!--top right 2 icons-->
+    <div><img class="logo" src="https://download.logo.wine/logo/DuckDuckGo/DuckDuckGo-Logo.wine.png"
+            alt="DuckDuckGo logo">
+    </div>
+    <div>
+        <input class="myinputbox" id="myinputbox" type="text" value tabindex="0"
+            placeholder="Search the web without being tracked">
+        <img width="50%" src="https://www.freeiconspng.com/uploads/search-icon-png-1.png">
+    </div>
+
+
+
+
+</body>
+<script>
+    window.onload = function () {
+        var input = document.getElementById("myinputbox").focus();
+    }
+</script>
+
+</html>

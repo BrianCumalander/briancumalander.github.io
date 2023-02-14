@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+<link rel="stylesheet" href="stylesheet.css">
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+<script src="date_days.js"></script>
+
+<body>
+
+    <h1 data-splitting class="cirTxt">
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+        11
+        12
+        13
+        14
+        15
+        16
+        17
+        18
+        <!-- <main></main>
+        <script>
+            document.querySelector('main').innerHTML = daysIncrement();
+        </script> -->
+
+    </h1>
+</body>
+
+
+<script>
+    const results = Splitting({ by: 'chars', whitespace: false }) /* whitespace: true crams all 
+    characters on top of each other*/
+
+    // 'words' seperates correctly but css doesn't understand so it doesn't wrap around wheel.
+    // 'chars' seperates incorrectly by each char, but does wrap around wheel.
+    // need to check css, not the turn by 1, but the ammount of chars that it turns at one time. OR,
+    // or I could find more params in the splitting.js docs for such a case as this.
+    // --case being that I'm splitting a returned array rathert than text in a div.
+
+    // splitting.js adds spaces between each char. Defined in seperator
+    // word in the html file. chars/items/words/ etc.
+    // https://splitting.js.org/guide.html#plugins
+
+</script>
+
+</html>

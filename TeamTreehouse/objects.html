@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Objects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    JS Object Literals consist of the following pattern:<br>
+    key: value,<br>
+    property: value<p></p>
+
+    <pre>
+    const student = {
+        name: "Quincy",
+        grades: [85, 90, 95, 100]
+    };
+    </pre>
+    <p></p>
+    <div>
+        <h1>Loop Through JS Objects</h1>
+        <h2>The format is as follows:</h2>
+        <pre>
+            for ( let key in object ) {
+                //do something
+            }
+        </pre>
+        <h2>Lets say you have the following:</h2>
+        <pre>
+            const student = {
+                name: 'Jesse',
+                grades: [80, 85, 90, 95]
+            };
+
+            for (let key in student ) {
+                //do something
+            };
+        </pre>
+        <h3>--'key' is the first part of your object. If you were to log the key to the console, as:</h3>
+        <pre> for ( let key in student ) {
+            console.log( key )
+        };
+        </pre>
+        <h3>It would output:</h3>
+        <ol>
+            <li>name</li>
+            <li>grades</li>
+        </ol>
+        <div>Now, key is just a property name, so we could change it to propName, or whatever I like.<br>
+            So how do we access the key values? We cannot do:<p></p>
+            for ( let propName in student ) {<br>
+            console.log( <strike>student.propName</strike> );
+            }<p></p>
+
+            because it will litterally display 'propName' rather than the value of propName.
+        </div>
+    </div>
+    <main></main>
+</body>
+
+
+<script>
+    /* 
+    name is our key, which can be anything that begins with a letter. 
+    Quincy can be any type. Seperate it with a comma.
+    */
+
+    const student = {
+        name: "Quincy",
+        grades: [85, 90, 95, 100]
+    }
+
+        ;
+
+
+    /*
+    Access the elements in the object by calling its key by either:
+    student['name']
+    or
+    student.name
+    */
+
+    const message = `Hi,
+                I'm ${student.name}. And my grades are ${student.grades.join()}.`;
+    document.querySelector('main').innerHTML = message;
+    //result is whatever the value is that you want to display in the html.
+
+    const student2 = {
+        name: 'Lizzie',
+        age: 24,
+        skills: ['JS', 'HTML', 'CSS']
+    }
+
+        ;
+    // you can grab the name like this:  student.name = Lizzie';
+    student2.city = 'New Orleans';
+    // This not only adds 'city' as a property to student, but adds a value as well.
+    // -- you can also change values of properties on the fly:
+    const msg = `Hi,
+        I'm ${student2.name}. I live in ${student2.city}. 
+        Most know me as ${student2.name = 'Duke'}. I have ${student2.skills.length} skills,
+        ${student2.skills.join(', ')}.`;
+    console.log(msg);
+
+
+    /* LOOP THROUGH OBJECTS  using for...in  */
+
+    const person = {
+        name: 'Edward',
+        nickname: 'Duke',
+        city: 'New York',
+        age: 37,
+        isStudent: true,
+        skills: ['JavaScript', 'HTML', 'CSS']
+    };
+
+    /*
+    for in loop.
+    a different property (prop) gets assigned to the prop in each itteration.
+    --note, prop can be named anything you want.
+    */
+
+    for (let prop in person) {
+        console.log(prop);      //only lists each property. To access the values, do this:
+        console.log(`${prop}: ${person[prop]}`);
+
+
+        const message2 = `${prop}: ${person[prop]}`; //remember to use format person[prop]
+        document.querySelector('main').innerHTML = message2;
+        // for some reason only the last key's value was returned.
+
+        //they go on to say:
+        const personProps = Object.keys(person);
+        console.log(personProps);
+        document.querySelector('main').innerHTML = `<li>${personProps}</li>`;
+    }
+
+    const person = {
+        name: 'Reggie',
+        role: 'Software developer',
+        skills: ['JavaScript', 'HTML', 'CSS'],
+        isTeacher: true
+    };
+
+    console.log(Object.keys(person).length);  // 4
+
+    // Store the `person` object's property values in `personVals`
+    const personVals = Object.values(person);
+    console.log(personVals);
+
+
+    const name = {
+        firstName: 'Reggie',
+        lastName: 'Williams',
+    };
+
+    const role = {
+        title: 'Software developer',
+        skills: ['JavaScript', 'HTML', 'CSS'],
+        isTeacher: true
+    };
+
+    // merge `name` and `role` into a `person` object
+    const person1 = {
+        ...name,
+        ...role
+    };
+    console.log(person1);
+</script>
+
+</html>
