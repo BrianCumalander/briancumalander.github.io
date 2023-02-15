@@ -2,6 +2,7 @@ const astrosUrl = 'http://api.open-notify.org/astros.json';
 const wikiUrl = 'https://en.wikipedia.org/api/rest_v1/page/summary/';
 const peopleList = document.getElementById('people');
 const btn = document.querySelector('button');
+const pplCount = document.querySelector('peopleCounter');
 
 // Make an ajax request
 function getJSON(url, callback) { // have the url, and then callback, which can actually be called anything but most ppl just write it as 'callback'
@@ -41,6 +42,7 @@ function generateHTML(data) {
 btn.addEventListener('click', () => {
     getJSON(astrosUrl, (json) => { // this is now receiving data from its parent func, getJSON
         json.people.map(person => {
+            //list number of objects in the array. As of 2.15.23, there are 10 people in space
             if (person.name == "Zhang Lu") {        // His info showed generic incorrect data b/c there's more than one "Zhang Lu" in wikipedia's database. had to fine correct one on wikipedia and specify to replace it on the next line.
                 getJSON(wikiUrl + "Zhang Lu (taikonaut)", generateHTML); // replace with correct person
             } else if (person.name == "Sergey Prokopyev") {
