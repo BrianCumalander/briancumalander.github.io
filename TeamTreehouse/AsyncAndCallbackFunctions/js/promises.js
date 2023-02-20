@@ -31,34 +31,44 @@ function getProfiles(json) {
 
 // Generate the markup for each profile
 function generateHTML(data) {
-    data.map(person => {
+    //data.map(person => {
+    // using a for-each instead:
+    data.forEach(person => {
         const section = document.createElement('section');
         peopleList.appendChild(section);
         // Check if request returns a 'standard' page from Wiki
-        if (data.type === 'standard') {
+        if (data.type === 'standard') {     //--because some results return the wrong person, this will help in returning an alternative 'generic' case for that. Its better than trying to manually correct the returned name b/c every time someone different is in space, that manual entry will need to be updated, and crash/give garbage results in the mean time.
             section.innerHTML = `
-      <img src=${data.thumbnail.source}>
-      <h2>${data.title}</h2>
-      <p>${data.description}</p>
-      <p>${data.extract}</p>
+      <img src=${person.thumbnail.source}> // display person.thumbnail.source rather than data.thumbnail.source
+      <h2>${person.title}</h2>
+      <p>${person.description}</p>
+      <p>${person.extract}</p>
     `;
         } else {
             section.innerHTML = `
       <img src="img/profile.jpg" alt="ocean clouds seen from space">
-      <h2>${data.title}</h2>
-      <p>Results unavailable for ${data.title}</p>
-      ${data.extract_html}
+      <h2>${person.title}</h2>
+      <p>Results unavailable for ${person.title}</p>
+      ${person.extract_html}
     `;
         }
-    })
+    });
 
 }
 
 btn.addEventListener('click', (event) => {
+    //after the promise is returned, use chaining to change the btn to say Loading...
+    event.target.textContent = "Loading...";
+
     getJSON(astrosUrl)
         .then(getProfiles)
         .then(generateHTML)
         // .then(data => console.log(data))
-        .catch(err => console.log(err))
-    event.target.remove();
+        .catch(err => {
+            peopleList.innerHTML = '<h3>Something went wrong.</h3>';
+            console.log(err)
+        })
+        // use a .finally() to give the remaining returns expected to close this chain.
+        .finally(() => event.target.remove())
+    //event.target.remove();// move this in to the finally statement to remove the button when the profiles are displayed.
 });

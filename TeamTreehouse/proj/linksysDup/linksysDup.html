@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Website with Sticky Navigation</title>
+  <link rel="stylesheet" href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ 
+<link rel="stylesheet" href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity=
+"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous" />
+  
+    <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  
+    <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  
+    <style type="text/css">
+
+    /* nav {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      background: rgb(21,58,84);
+background: linear-gradient(180deg, rgba(21,58,84,1) 43%, rgba(0,48,81,1) 100%);
+    }
+
+    nav li {
+      display: inline-block;
+      margin-right: 5px;
+      color: white;
+}
+      logo {
+  width: 40%;
+  float: left;
+}
+
+.logo {
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+}
+    nav-right {
+      float: right;
+    } */
+
+
+
+
+
+   
+        .navbar-brand {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+              /* filter: invert(100%); */
+  -webkit-filter: invert(100%);
+  color: white;
+  background: rgb(21,58,84);
+background: linear-gradient(180deg, rgba(21,58,84,1) 43%, rgba(0,48,81,1) 100%);
+
+        }
+        
+
+        
+    </style>
+  </style>
+</head>
+
+<body>
+  <!-- <nav>
+    <ul>
+      <li><a href="#home"><img class="logo" id="logo" src="images/logo.png" width="6%"></a> Smart Wi-Fi</li>
+    </ul>
+    <ul class="nav-right">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav> -->
+
+
+
+  <header class="topbar">
+    <div class="logo">
+      <!-- <a href="#" class="mylogo"><img class="logo" id="logo" src="images/logo.png" width="16%"> Smart Wi-Fi</a> -->
+    </div>
+    <nav class="navbar navbar-expand-lg 
+    navbar-dark bg-primary">
+
+<!-- Brand and toggle get grouped 
+for better mobile display -->
+<a class="navbar-brand" href="#">
+<img src=
+"images/logo.png"
+width="6%" alt="logo" /> Smart Wi-Fi
+</a>
+
+<button class="navbar-toggler" type="button"
+data-toggle="collapse" data-target=
+"#bs-example-navbar-collapse-1"
+aria-controls="bs-example-navbar-collapse-1"
+aria-expanded="false" 
+aria-label="Toggle navigation">
+
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<!-- Anything inside of collapse 
+navbar-collapse goes into the "hamburger" -->
+<div class="collapse navbar-collapse" 
+id="bs-example-navbar-collapse-1">
+
+<ul class="navbar-nav ml-auto">
+<li class="nav-item">
+    <a class="nav-link" href="#">
+        Home
+        <span class="sr-only">
+            (current)
+        </span>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="#">
+        Item1
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="#">
+        Item2
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="#">
+        Item3</a>
+</li>
+</ul>
+</div>
+</nav>
+
+
+    <nav class="user">
+      <ul>
+        <li><a href="login.php">Log In</a></li>
+        <li><a href="signup.php">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity=
+  "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" 
+  crossorigin="anonymous">
+</script>
+
+<script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+</script>
+
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.1/web-animations.min.js">
+</script>
+
+  <div style="display: flex;">
+    <div style="width: 25%;">
+      <h2>Table of Contents</h2>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#section1">Section 1</a></li>
+        <li><a href="#section2">Section 2</a></li>
+        <li><a href="#section3">Section 3</a></li>
+      </ul>
+    </div>
+    <div style="width: 75%;">
+      <h1>Welcome to My Website</h1>
+      <h2 id="introduction">Introduction</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vestibulum suscipit elit, non lobortis elit
+        dapibus id. Integer malesuada lectus at lacinia iaculis. Sed at augue auctor, placerat justo at, vehicula ipsum.
+        Vivamus elementum quis urna quis malesuada. Sed sit amet enim vel risus auctor interdum. Integer vel erat velit.
+      </p>
+
+      <h2 id="section1">Section 1</h2>
+      <p>Aliquam tincidunt leo eget nisi rhoncus, a hendrerit mauris pretium. Ut scelerisque, nibh a dignissim cursus,
+        elit massa elementum dui, non condimentum purus dolor non leo. Donec in mauris a elit ullamcorper accumsan.
+        Vivamus accumsan, magna quis aliquam tempor, libero libero consectetur metus, eu imperdiet orci purus ac mauris.
+        Donec et arcu et risus faucibus tincidunt. Sed ultricies orci vel nibh aliquam, ac porta massa tincidunt.</p>
+
+      <h2 id="section2">Section 2</h2>
+      <p>Aliquam tincidunt leo eget nisi rhoncus, a hendrerit mauris pretium. Ut scelerisque, nibh a dignissim cursus,
+        elit massa elementum dui, non condimentum purus dolor non leo. Donec in mauris a elit ullamcorper accumsan.
+        Vivamus accumsan, magna quis aliquam tempor, libero libero consectetur metus, eu imperdiet orci purus ac mauris.
+        Donec et arcu et risus faucibus tincidunt. Sed ultricies orci vel nibh aliquam, ac porta massa tincidunt.</p>
+
+      <h2 id="section3">Section 3</h2>
+      <p>Aliquam tincidunt leo eget nisi rhoncus, a hendrerit mauris pretium. Ut scelerisque, nibh a dignissim cursus,
+        elit massa elementum dui, non condimentum purus dolor non leo. Donec in mauris a elit ullamcorper accumsan.
+        Vivamus accumsan, magna quis aliquam tempor, libero libero consectetur metus, eu imperdiet orci purus ac mauris.
+        Donec et arcu et risus faucibus tincidunt. Sed ultricies orci vel nibh aliquam, ac porta massa tincidunt.</p>
+    </div>
+</body>
+
+</html>
