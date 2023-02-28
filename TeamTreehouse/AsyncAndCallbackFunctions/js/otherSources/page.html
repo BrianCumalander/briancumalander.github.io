@@ -1,0 +1,39 @@
+<html>
+<body>
+
+    The point of this page is to use some of what I've learned.<br>
+    First, an entry box to enter items in to the input box<br>
+    then click Submit. The items go in to the list array and are<br>
+    listed below.<br>
+    Add-ons:<br>
+    1) use pop and buttons to remove items from the list.<p></p>
+
+    Enter items to put in the list:
+    <input id='inputBox'></input><button>Submit</button>
+<main></main>
+
+<ul id="list">
+    <li><a href ="#">Item 1</a></li>
+    <li><a href ="#">Item 2</a></li>
+    <li><a href ="#">Item 3</a></li>
+    
+</body>
+<script>
+let items = [];
+
+document.querySelector('button').addEventListener('click', handlClick);
+
+function handlClick() {
+    //alert("I got clicked")
+    items.push(inputBox.value);
+    console.log(items.length);
+    console.log(items);
+    //document.querySelector('main').innerHTML = `${items}`;
+   // const list = document.getElementById('main')
+}
+
+const list = document.getElementById("list");
+
+//list.innerHTML += `<li><a href='#'>Item ${list.children.length + 1}</a></li>`;
+    </script>
+</html>
