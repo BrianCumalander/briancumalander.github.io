@@ -8,7 +8,7 @@ In total, I picked 443 tomatoes from 07/02/2019 to 11/01/2019.
 
 ## Screenshots
 
-![Main mobile UI](content/images/mobile01.png)
-![Record tomatoes picked UI](content/images/mobile02.png)
-![Report UI](content/images/mobile03.png)
-![Non-mobile browser UI](content/images/desktop_browser.png)
+![Main mobile UI](briancumalander.github.io/content/images/mobile01.png)
+![Record tomatoes picked UI](briancumalander.github.io/content/images/mobile02.png)
+![Report UI](briancumalander.github.io/content/images/mobile03.png)
+![Non-mobile browser UI](briancumalander.github.io/content/images/desktop_browser.png)
